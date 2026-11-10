@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What Is America? — An Interactive Installation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+<div class="grain" aria-hidden="true"></div>
+
+<main>
+  <!-- ACT I + II: the collage that tears, and the workspace beneath it -->
+  <section class="track" id="tear" aria-label="The American Dream tears apart to reveal Eminem's political workspace">
+    <div class="stage" id="stage" data-g="0">
+
+      <!-- Layer 1 (bottom): dark workspace -->
+      <div class="workspace" id="workspace">
+        <p class="ws-label">DOSSIER 01 — EXHIBIT: EMINEM</p>
+        <img class="em" src="eminem_render.png" alt="Eminem holding a microphone, standing at the centre of the broken American Dream">
+        <nav class="hots" aria-label="Political topics in Eminem's work">
+          <button class="hot h1" data-topic="racism"><span class="disc"><img src="icon_racism.png" alt=""></span><span class="lbl">Racial Double Standards</span></button>
+          <button class="hot h2" data-topic="guns"><span class="disc"><img src="icon_guns.png" alt=""></span><span class="lbl">Guns &amp; the NRA</span></button>
+          <button class="hot h3" data-topic="censor"><span class="disc"><svg viewBox="0 0 48 48" fill="none" stroke="#14110f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14l26-6 4 10-26 6z"/><path d="M34 15l8 3M20 24l-3 14M12 38h12"/><circle cx="14" cy="21" r="2.5" fill="#8f1d2c"/></svg></span><span class="lbl">Censorship &amp; Surveillance</span></button>
+          <button class="hot h4" data-topic="war"><span class="disc"><img src="icon_war.png" alt=""></span><span class="lbl">War &amp; State Control</span></button>
+          <button class="hot h5" data-topic="vote"><span class="disc"><img src="icon_vote.png" alt=""></span><span class="lbl">Voting &amp; Hypocrisy</span></button>
+        </nav>
+      </div>
+
+      <!-- Layer 2: the 1950s collage (4 quadrants, torn by scroll) -->
+      <div class="collage" id="collage" aria-hidden="true">
+        <div class="quad q1"><img src="american_dream_1.png" data-n="1" alt="" decoding="async"></div>
+        <div class="quad q2"><img src="american_dream_2.png" data-n="2" alt="" decoding="async"></div>
+        <div class="quad q3"><img src="american_dream_3.png" data-n="3" alt="" decoding="async"></div>
+        <div class="quad q4"><img src="american_dream_4.png" data-n="4" alt="" decoding="async"></div>
+        <div class="static"></div>
+      </div>
+
+      <!-- Layer 3: entry prompt + scroll cue -->
+      <button class="enter" id="enter" aria-label="Click to enter the American Dream and start the audio">
+        <span>CLICK TO ENTER<br>THE AMERICAN DREAM</span>
+      </button>
+      <div class="cue" id="cue" aria-hidden="true"><span>SCROLL DOWN TO SEE WHAT LIES BENEATH</span><i></i></div>
+      <button class="snd" id="snd" hidden aria-pressed="false">SOUND ON</button>
+      <p class="audio-err" id="audioErr" hidden role="status">Audio could not play — the visual experience continues without sound.</p>
+    </div>
+  </section>
+
+  <!-- ACT III: What else is America? -->
+  <section class="else" id="else" aria-labelledby="else-h">
+    <p class="kicker">DOSSIER 02 — THE WIDER FILE</p>
+    <h2 id="else-h">WHAT ELSE IS AMERICA?</h2>
+    <p class="intro">Eminem's music doesn't float in a vacuum. The issues in his lyrics come out of larger arguments about power, democracy, inequality, and what it means to be American. This section steps back to look at the history and politics around those themes. Not every topic here is one Eminem addresses directly: they are the wider backdrop for the tensions his music engages with.</p>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- FINAL SECTION -->
+  <section class="finale" id="finale" aria-labelledby="fin-h">
+    <p class="kicker">FINAL SECTION</p>
+    <h2 id="fin-h">The American Dream: Promise, Reality &amp; Contradiction</h2>
+    <p>America was founded on the ideals of liberty, equality, and opportunity.</p>
+    <p>Throughout its history, though, the link between those ideals and how they have been carried out has been fiercely contested.</p>
+    <p>Through his music, Eminem takes on racial inequality, political authority, free expression, war, and democratic participation. He doesn't hand us final answers, but he gives us a cultural lens for looking at these issues.</p>
+    <p>The wider political context shows that these tensions go far beyond music. They shape American institutions, public debate, and national identity.</p>
+    <p>The American Dream is not just a promise of prosperity. It is a promise that freedom and opportunity should be within everyone's reach.</p>
+    <p>So what happens when the systems meant to protect that promise become the very systems that limit it?</p>
+    <p class="q">Is the American Dream a promise America keeps pursuing, a reality experienced unequally, or an ideal that remains fundamentally contested?</p>
+    <p class="fin">The question isn't whether America is perfect.</p>
+    <p class="fin">It's whether a nation built on the promise of freedom is willing to confront the systems that stop it from delivering.</p>
+  </section>
+</main>
+
+<!-- Shared glassmorphism pop-up -->
+<div class="backdrop" id="backdrop" hidden>
+  <article class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" tabindex="-1">
+    <button class="close" id="close" aria-label="Close pop-up">&times;</button>
+    <p class="m-kicker" id="m-kicker"></p>
+    <h3 id="m-title"></h3>
+    <div id="m-body"></div>
+  </article>
+</div>
+
+<audio id="audio" src="audio_file.mp3" preload="auto"></audio>
+<script src="script.js"></script>
+</body>
+</html>
